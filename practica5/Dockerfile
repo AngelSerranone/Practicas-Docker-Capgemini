@@ -10,7 +10,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y nginx 
 ##Creamos un fichero index.html en el directorio por defecto de nginx 
 RUN echo 'Ejemplo de POD con KUBERNETES y YAML' > /var/www/html/index.html 
-##Arrancamos NGINX a través de ENTRYPOINT para que no pueda ser modificado en la creación del contenedor 
+##Arrancamos NGINX a través de ENTRYPOINT para que no pueda ser modificado en la creación del contenedor
+## me ejecuta el comando nginx, en global, y daemon off es para que no arranque en segundo plano el nginx
 ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"] 
 ##Exponemos el Puerto 80 
 EXPOSE 80
