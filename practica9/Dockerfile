@@ -18,7 +18,8 @@ RUN tar xzf solr-8.9.0.tgz
 EXPOSE 8983
 
 ## Ejecutamos un comando final
-ENTRYPOINT ["/opt/solr-8.9.0/bin/solr", "start", "-force", "-f"]
+## -force es para que ejecute como root, y -f es para que arranque en foreground(primer plano)
+ENTRYPOINT ["/opt/solr-8.9.0/bin/solr", "start", "-force", "-f"] 
 
 
 ## PARA MONTAR LA IMAGEN: docker build -t angelserranone/solr .
